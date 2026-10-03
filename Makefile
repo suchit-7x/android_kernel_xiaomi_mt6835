@@ -1195,6 +1195,19 @@ export MODULES_NSDEPS := $(extmod_prefix)modules.nsdeps
 
 PHONY += headers
 
+ext-mod-dir := ../mt6835-modules
+ext-mod-dirs := \
+ 	$(ext-mod-dir)/connectivity \
+ 	$(ext-mod-dir)/fpsgo_cus \
+ 	$(ext-mod-dir)/gpu \
+ 	$(ext-mod-dir)/hbt_driver \
+ 	$(ext-mod-dir)/hbt_driver_cus \
+ 	$(ext-mod-dir)/met_drv_v2 \
+        $(ext-mod-dir)/met_drv_v3 \
+        $(ext-mod-dir)/msync2_frd_cus \
+        $(ext-mod-dir)/udc
+ext-mod-dirs := $(subst $(srctree)/,,$(ext-mod-dirs))
+
 #Default location for installed headers
 ifeq ($(KBUILD_EXTMOD),)
 PHONY += archheaders archscripts
